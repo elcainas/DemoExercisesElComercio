@@ -9,7 +9,7 @@ namespace Demo.Exercises.Test
     public class CompleteRangeTest
     {
         [TestMethod]
-        public void TestBuildCompleteRange()
+        public void TestBuildCompleteRangeCount()
         {
             var input = new List<int>
             {
@@ -17,8 +17,18 @@ namespace Demo.Exercises.Test
             };
             var output = CompleteRange.Build(input);
             var sum = output.ToList().Sum();
-            Assert.AreEqual(sum, (input.Max() * (input.Max() +1)) / 2);
             Assert.AreEqual(output.Count(), input.Max());
+        }
+        [TestMethod]
+        public void TestBuildCompleteRangeCheckSum()
+        {
+            var input = new List<int>
+            {
+               5,7,3,6,15,21
+            };
+            var output = CompleteRange.Build(input);
+            var sum = output.ToList().Sum();
+            Assert.AreEqual(sum, (input.Max() * (input.Max() + 1)) / 2);
         }
 
     }
